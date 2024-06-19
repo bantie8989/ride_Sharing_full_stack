@@ -34,10 +34,6 @@ function Hero() {
             </Button>
           </Link>
 
-          <Button colorScheme="green" borderColor={"none"}>
-            ለድርጅት በዚህ ይግብ{" "}
-          </Button>
-
           <Link to={"/passanger-login"}>
             <Button colorScheme="green" borderColor={"none"}>
               ለተሳፋሪ በዚሁ ይግቡ{" "}
