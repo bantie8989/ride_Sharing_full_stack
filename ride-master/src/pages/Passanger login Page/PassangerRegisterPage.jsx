@@ -11,8 +11,10 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import Setting from "../Driver App Page/components/Settings component/Setting";
 import Topbar from "../HomePage/components/TopbarComponent/Topbar";
 import Footer from "../HomePage/components/FooterComponent/Footer";
+import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function PassangerRegisterPage() {
@@ -20,6 +22,7 @@ function PassangerRegisterPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [driverLicense, setDriverLicense] = useState("");
 
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
@@ -106,7 +109,7 @@ function PassangerRegisterPage() {
                 <Input
                   color={"blue.200"}
                   type={show ? "text" : "password"}
-                  value={confirmPassword}
+                  value={password}
                   onChange={(event) => setConfirmPassword(event.target.value)}
                   placeholder="Re-Enter your password"
                   _placeholder={{ opacity: 1, color: "gray.500" }}
@@ -118,12 +121,16 @@ function PassangerRegisterPage() {
                   </Button>
                 </InputRightElement>
               </InputGroup>
-              <FormLabel color={"gray.500"} fontWeight={"bolder"}>
-                your driver license number
-              </FormLabel>{" "}
+              <Input
+                color={"blue.200"}
+                value={driverLicense}
+                onChange={(event) => setDriverLicense(event.target.value)}
+                placeholder="enter you driver license number"
+                _placeholder={{ opacity: 1, color: "gray.500" }}
+              />
               <FormErrorMessage>{error}</FormErrorMessage>
             </FormControl>
-            <Link to={"/account"}>
+            <Link to={"/ride-request"}>
               <Button type="submit" colorScheme="teal" w={"full"} mt={4}>
                 sign up
               </Button>
